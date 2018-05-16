@@ -2,7 +2,9 @@
 
 此插件是使用 `CoffeeScript`, `NodeJS`, `stylus` 等技术，个人开发的重邮课表Übersicht插件。
 
+效果图：
 
+![0](pic/0.png)
 
 ## Übersicht是什么？
 首先上官网：http://tracesof.net/uebersicht/

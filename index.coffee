@@ -1,6 +1,6 @@
 options = 
   studentID: 2016211603
-  fontSize: '25px'    # 字体大小
+  fontSize: '23px'    # 字体大小
   textAlign: 'left'
   fontWeight: 400
   opacity: 1
@@ -17,7 +17,7 @@ refreshFrequency: 1000 * 60 * 60    # 每小时刷新一次
 update: (output, domEl) -> 
   console.dir(output)
   if JSON.parse(output).success == false and JSON.parse(output).status != 200
-    return false
+    console.log('课程列表数据更新失败')
   else
     localStorage.setItem 'cl-data', output
   
@@ -102,7 +102,7 @@ style: (->
       
       .clItem
         padding 10px 15px
-        border-top 1.5px solid white
+        border-top .5px solid rgba(#FFF, .8)
         text-align #{options.textAlign}
         line-height 1.1em
         span
