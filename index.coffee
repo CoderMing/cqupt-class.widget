@@ -25,7 +25,7 @@ update: (output, domEl) ->
 
   @data = JSON.parse localStorage.getItem 'cl-data'
   # 当前课程周
-  nowWeek = @data.nowWeek
+  reqWeek = @data.nowWeek
   # 当前时间
   dateObj = new Date()
   # 当前天数的中文字符
@@ -50,14 +50,18 @@ update: (output, domEl) ->
     domTemp += """
       <div class='title'>周#{dayChar[dateObj.getDay()]}</div>
     """
-  # 计算出需要显示的正确日期
+  # 计算出需要显示的正确日期 & 正确周
+  if dateObj.getDay() == 0 and dayChange == 0
+    reqWeek += 1
+  
   if dateObj.getDay() == 0 and dayChange == 1
     reqDay = 6
   else 
     reqDay = dateObj.getDay() - dayChange
+
   # 列表渲染
   @data.data.forEach (el) ->
-    if el.week.find((data) -> data == nowWeek) and el.hash_day == reqDay
+    if el.week.find((data) -> data == reqWeek) and el.hash_day == reqDay
       isHaveClass = true
       domTemp += """
         <div class='clItem'>
