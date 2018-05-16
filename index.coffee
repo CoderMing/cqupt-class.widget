@@ -1,9 +1,9 @@
 options = 
   studentID: 2016211603
   fontSize: '25px'    # 字体大小
-  textAlign: 'center'
+  textAlign: 'left'
   fontWeight: 400
-  opacity: .9
+  opacity: 1
   dayChangeTime: 21  # 每日自动切换至下一天的课程的时间，按小时计，整数。合法值1-24
 
 command: "/usr/local/bin/node cqupt-class.widget/req.txt #{options.studentID}"
@@ -81,9 +81,8 @@ update: (output, domEl) ->
 style: (->
   return """
     #cquptClass
-      margin-left 50vw
-      margin-top 125px
-      transform translateX(-50%)
+      margin-left 100px
+      margin-top 30px
       color white
       font-family -apple-system, BlinkMacSystemFont
       font-size #{options.fontSize}
