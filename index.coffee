@@ -12,7 +12,7 @@ render: -> """
   <div id='cquptClass'></div>
 """
 
-refreshFrequency: 1000 * 5    # 10min刷新一次
+refreshFrequency: 1000 * 60 * 10    # 10min刷新一次
 
 update: (output, domEl) -> 
   console.dir(output)
