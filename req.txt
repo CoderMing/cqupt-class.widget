@@ -1,0 +1,50 @@
+/**
+ * CQUPT课表接口
+ * @author CoderMing
+ * https://github.com/coderming
+ */
+const http = require('http')
+const querystring = require('querystring')
+
+let options = {
+  stuID: process.argv[2],
+  hostname: 'hongyan.cqupt.edu.cn',
+  path: '/api/kebiao'
+}
+
+
+let getClassData = () => {
+
+  const requestOptions = {
+    hostname: options.hostname,
+    path: options.path,
+    method: 'POST',
+    port: 80,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    }
+  }
+
+
+  let req = http.request(requestOptions, res => {
+    let chunks = [],
+        data = ''
+    res.on('data', chunk => {
+      chunks.push(chunk)
+    })
+    res.on('end', () => {
+      data = Buffer.concat(chunks).toString('utf-8')
+      console.log(data)
+    })
+  })
+
+  req.write(querystring.stringify({
+    'stu_num': options.stuID
+  }))
+
+  req.end()
+}
+
+getClassData()
+
+
