@@ -1,6 +1,6 @@
 options = 
-  studentID: 2016211603
-  fontSize: '25px'
+  studentID: 2016210000
+  fontSize: '25px'    # 字体大小
   textAlign: 'center'
   fontWeight: 400
   opacity: .9
@@ -12,7 +12,7 @@ render: -> """
   <div id='cquptClass'></div>
 """
 
-refreshFrequency: 1000 * 60 * 10    # 10min刷新一次
+refreshFrequency: 1000 * 60 * 60    # 每小时刷新一次
 
 update: (output, domEl) -> 
   console.dir(output)
@@ -30,6 +30,8 @@ update: (output, domEl) ->
   dateObj = new Date()
   # 当前天数的中文字符
   dayChar = ['日', '一', '二', '三', '四', '五', '六', '日']
+  # 今天是否有课
+  isHaveClass = false
   # 每天晚上9点后显示第二天的课程
   if dateObj.getHours() >= options.dayChangeTime - 1
     dayChange = 0
@@ -56,6 +58,7 @@ update: (output, domEl) ->
   # 列表渲染
   @data.data.forEach (el) ->
     if el.week.find((data) -> data == nowWeek) and el.hash_day == reqDay
+      isHaveClass = true
       domTemp += """
         <div class='clItem'>
           <div class='cli-name'><span class='cli-time'>#{el.lesson}</span>#{el.course}</div>
@@ -63,6 +66,13 @@ update: (output, domEl) ->
           <div class='cli-teacher'><span class='cli-type'>#{el.type}</span>#{el.teacher}</div>
         </div>
       """
+
+  if isHaveClass == false
+    domTemp += """
+        <div class='clItem'>
+          <div class='cli-room'>今日无课</div>
+        </div>
+    """
   
   @$el.find('#cquptClass').html domTemp
 
