@@ -1,6 +1,6 @@
 # 重邮课表 - Übersicht/Uebersicht插件
 
-此插件是使用 `CoffeeScript`, `NodeJS`, `stylus` 等技术，个人开发的重邮课表重邮课表Übersicht插件。
+此插件是使用 `CoffeeScript`, `NodeJS`, `stylus` 等技术，个人开发的重邮课表Übersicht插件。
 
 
 
