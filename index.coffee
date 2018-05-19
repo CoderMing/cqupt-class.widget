@@ -74,7 +74,10 @@ update: (output, domEl) ->
   if isHaveClass == false
     domTemp += """
         <div class='clItem'>
-          <div class='cli-room' style='text-align: center'>今日无课</div>
+          <div class='cli-room'
+               style='text-align: center'>
+            #{if dayChange == 1 then '今' else '明'}日无课
+          </div>
         </div>
     """
   
