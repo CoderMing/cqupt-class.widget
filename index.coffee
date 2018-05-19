@@ -74,7 +74,7 @@ update: (output, domEl) ->
   if isHaveClass == false
     domTemp += """
         <div class='clItem'>
-          <div class='cli-room'>今日无课</div>
+          <div class='cli-room' style='text-align: center'>今日无课</div>
         </div>
     """
   
@@ -95,6 +95,7 @@ style: (->
       -webkit-font-smoothing antialiased
       -webkit-text-size-adjust none
       opacity #{options.opacity}
+      min-width #{options.fontSize} * 10
 
       .title
         font-size #{options.fontSize} * .7
