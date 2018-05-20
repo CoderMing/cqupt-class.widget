@@ -44,7 +44,10 @@ update: (output, domEl) ->
   # 确定屏幕上显示的title
   if dayChange == 0
     domTemp += """
-      <div class='title'>明日（周#{dayChar[dateObj.getDay() + 1]}）课程</div>
+      <div class='title'>
+        明日（#{if dateObj.getDay() == 0 then '下周' else ''}\
+        周#{dayChar[dateObj.getDay() + 1]}）课程
+      </div>
     """
   else
     domTemp += """
