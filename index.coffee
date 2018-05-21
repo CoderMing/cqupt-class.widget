@@ -17,7 +17,7 @@ refreshFrequency: 1000 * 60 * 60    # 每小时刷新一次
 update: (output, domEl) -> 
   console.dir(output)
   if JSON.parse(output).success == false and JSON.parse(output).status != 200
-    return throw new Error('课程列表数据更新失败')
+    console.log('课程列表数据更新失败')
   else
     localStorage.setItem 'cl-data', output
   
