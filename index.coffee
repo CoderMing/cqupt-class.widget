@@ -4,7 +4,7 @@ options =
   textAlign: 'left'
   fontWeight: 400
   opacity: 1
-  dayChangeTime: 1  # 每日自动切换至下一天的课程的时间，按小时计，整数。合法值1-24
+  dayChangeTime: 21  # 每日自动切换至下一天的课程的时间，按小时计，整数。合法值1-24
 
 command: "/usr/local/bin/node cqupt-class.widget/req.txt #{options.studentID}"
 
