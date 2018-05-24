@@ -1,10 +1,10 @@
 options = 
-  studentID: 2016211603
+  studentID: 2016214049
   fontSize: '23px'    # 字体大小
   textAlign: 'left'
   fontWeight: 400
   opacity: 1
-  dayChangeTime: 21  # 每日自动切换至下一天的课程的时间，按小时计，整数。合法值1-24
+  dayChangeTime: 1  # 每日自动切换至下一天的课程的时间，按小时计，整数。合法值1-24
 
 command: "/usr/local/bin/node cqupt-class.widget/req.txt #{options.studentID}"
 
@@ -70,7 +70,12 @@ update: (output, domEl) ->
         <div class='clItem'>
           <div class='cli-name'><span class='cli-time'>#{el.lesson}</span>#{el.course}</div>
           <div class='cli-room'>#{el.classroom}</div>
-          <div class='cli-teacher'><span class='cli-type'>#{el.type}</span>#{el.teacher}</div>
+          <div class='cli-teacher'>
+            <span class='cli-type'>#{el.type}</span>
+            #{if el.period != 2 \
+                then ('<span>' + el.teacher + '</span>' + el.period + '节连上') \
+                else el.teacher}
+          </div>
         </div>
       """
 
