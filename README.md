@@ -33,7 +33,7 @@ $ git clone https://github.com/CoderMing/cqupt-class.widget
 
 然后就可以看到安装好的效果了。
 
-
+tips：请确保第一次安装的时候已联网。本插件会在刚安装的时候进行初始化，需要网络请求数据。
 
 ## 如何配置？
 
