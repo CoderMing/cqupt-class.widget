@@ -95,9 +95,12 @@ update: (output, domEl) ->
 
 style: (->
   return """
+    #{options.textAlign} 0
+    top 0
+    margin-#{options.textAlign} 100px
+    margin-top 30px
+
     #cquptClass
-      margin-left 100px
-      margin-top 30px
       color white
       font-family -apple-system, BlinkMacSystemFont
       font-size #{options.fontSize}
