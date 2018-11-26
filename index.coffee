@@ -98,7 +98,9 @@ style: (->
     #{options.textAlign} 0
     top 0
     margin-#{options.textAlign} 100px
-    margin-top 30px
+    margin-top 20px
+    padding 10px 20px
+    background rgba(0, 0, 0, 0)
 
     #cquptClass
       color white
@@ -110,6 +112,7 @@ style: (->
       -webkit-text-size-adjust none
       opacity #{options.opacity}
       min-width #{options.fontSize} * 10
+      text-shadow 0px 0px 5px #AAA
 
       .title
         font-size #{options.fontSize} * .7
