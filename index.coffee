@@ -112,7 +112,7 @@ style: (->
       -webkit-text-size-adjust none
       opacity #{options.opacity}
       min-width #{options.fontSize} * 10
-      text-shadow 0px 0px 5px #AAA
+      text-shadow 0px 0px 10px #333
 
       .title
         font-size #{options.fontSize} * .7
